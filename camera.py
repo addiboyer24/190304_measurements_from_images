@@ -72,7 +72,7 @@ class Camera(object):
     
     def residual(self, pose, pts, u_gcp):
         ''' Calculate the residual between transformed coordinates on prominant features and measured pixel values of those features'''
-        pt = myCam.projective_transform(myCam.rotational_transform(pts,pose))
+        pt = self.projective_transform(self.rotational_transform(pts,pose))
         res = pt.flatten() - u_gcp.flatten()
         return res
     
